@@ -2,14 +2,14 @@ import electron from 'electron'
 import { Application } from 'spectron'
 
 export default {
-  afterEach () {
+  after () {
     this.timeout(10000)
 
     if (this.app && this.app.isRunning()) {
       return this.app.stop()
     }
   },
-  beforeEach () {
+  before () {
     this.timeout(10000)
     this.app = new Application({
       path: electron,
