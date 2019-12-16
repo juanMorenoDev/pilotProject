@@ -1,6 +1,10 @@
 <template>
   <div id="wrapper">
-    <img id="logo" src="~@/assets/logo.png" alt="electron-vue">
+    <el-carousel :interval="5000" arrow="always">
+      <el-carousel-item v-for="item in banner" :key="item">
+        <img id="banner" :src="item" alt="">
+      </el-carousel-item>
+     </el-carousel>
     <main>
       <div class="left-side">
         <span class="title">
@@ -35,6 +39,11 @@
   export default {
     name: 'landing-page',
     components: { SystemInformation },
+    data () {
+      return {
+        banner: [require('../assets/banner1.jpg'), require('../assets/banner2.jpg')]
+      }
+    },
     methods: {
       open (link) {
         this.$electron.shell.openExternal(link)
@@ -66,6 +75,11 @@
     width: 100vw;
   }
 
+  #banner {
+    height: 250px;
+    width: 900px;
+    /*display: none;*/
+  }
   #logo {
     height: auto;
     margin-bottom: 20px;
