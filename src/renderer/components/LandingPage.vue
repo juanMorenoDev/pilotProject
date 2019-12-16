@@ -44,7 +44,7 @@
     components: { SystemInformation },
     data () {
       return {
-        banner: [require('../assets/banner1.jpg'), require('../assets/banner2.jpg')]
+        banner: [require('../assets/banner1.jpg'), require('../assets/banner2.jpg'), require('../assets/banner3.jpg')]
       }
     },
     methods: {
@@ -67,21 +67,22 @@
   body { font-family: 'Source Sans Pro', sans-serif; }
 
   #wrapper {
-    background:
-      radial-gradient(
-        ellipse at top left,
-        rgba(255, 255, 255, 1) 40%,
-        rgba(229, 229, 229, .9) 100%
-      );
-    height: 100vh;
+    background: #fff;
+    height: auto;
     padding: 60px 80px;
     width: 100vw;
   }
-
+  @media only screen and (min-width: 1281px) {
+    #banner {
+    height: 300px;
+    width: 1120px;
+    /* display: none; */
+  }
+}
   #banner {
-    height: 250px;
-    width: 900px;
-    /*display: none;*/
+    height: 300px;
+    width: 1120px;
+    /* display: none; */
   }
   #logo {
     height: auto;
