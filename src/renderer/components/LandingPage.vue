@@ -5,6 +5,9 @@
         <img id="banner" :src="item" alt="">
       </el-carousel-item>
      </el-carousel>
+     <center>
+       <img id="logo" src="~@/assets/logo.png" alt="where-to-eat">
+     </center>
     <main>
       <div class="left-side">
         <span class="title">
@@ -83,7 +86,9 @@
   #logo {
     height: auto;
     margin-bottom: 20px;
-    width: 420px;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   main {
