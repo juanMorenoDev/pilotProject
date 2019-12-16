@@ -1,6 +1,13 @@
 <template>
   <div id="wrapper">
-    <img id="logo" src="~@/assets/logo.png" alt="electron-vue">
+    <el-carousel :interval="5000" arrow="always">
+      <el-carousel-item v-for="item in banner" :key="item">
+        <img id="banner" :src="item" alt="">
+      </el-carousel-item>
+     </el-carousel>
+     <center>
+       <img id="logo" src="~@/assets/logo.png" alt="where-to-eat">
+     </center>
     <main>
       <div class="left-side">
         <span class="title">
@@ -35,6 +42,11 @@
   export default {
     name: 'landing-page',
     components: { SystemInformation },
+    data () {
+      return {
+        banner: [require('../assets/banner1.jpg'), require('../assets/banner2.jpg'), require('../assets/banner3.jpg')]
+      }
+    },
     methods: {
       open (link) {
         this.$electron.shell.openExternal(link)
@@ -55,21 +67,29 @@
   body { font-family: 'Source Sans Pro', sans-serif; }
 
   #wrapper {
-    background:
-      radial-gradient(
-        ellipse at top left,
-        rgba(255, 255, 255, 1) 40%,
-        rgba(229, 229, 229, .9) 100%
-      );
-    height: 100vh;
+    background: #fff;
+    height: auto;
     padding: 60px 80px;
     width: 100vw;
   }
-
+  @media only screen and (min-width: 1281px) {
+    #banner {
+    height: 300px;
+    width: 1120px;
+    /* display: none; */
+  }
+}
+  #banner {
+    height: 300px;
+    width: 1120px;
+    /* display: none; */
+  }
   #logo {
     height: auto;
     margin-bottom: 20px;
-    width: 420px;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   main {
